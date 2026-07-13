@@ -1,5 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import UsersView from '../views/UsersView.vue'
+import UserDetailsView from '../views/UserDetailsView.vue'
+import VehiclesView from '../views/VehiclesView.vue'
+import ParkingSpotsView from '../views/ParkingSpotsView.vue'
+import ReservationsView from '../views/ReservationsView.vue'
+import SubscriptionsView from '../views/SubscriptionsView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -10,12 +16,34 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue'),
+      path: '/users',
+      name: 'users',
+      component: UsersView,
+    },
+    {
+      path: '/users/:id',
+      name: 'user-details',
+      component: UserDetailsView,
+    },
+    {
+      path: '/vehicles',
+      name: 'vehicles',
+      component: VehiclesView,
+    },
+    {
+      path: '/parking-spots',
+      name: 'parking-spots',
+      component: ParkingSpotsView,
+    },
+    {
+      path: '/reservations',
+      name: 'reservations',
+      component: ReservationsView,
+    },
+    {
+      path: '/subscriptions',
+      name: 'subscriptions',
+      component: SubscriptionsView,
     },
   ],
 })
