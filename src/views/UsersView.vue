@@ -88,11 +88,11 @@ onMounted(loadUsers)
             <input v-model="newUser.phone" type="tel" class="form-control" required />
           </div>
           <div class="mb-3">
-            <label class="form-label">Subscription Type</label>
+            <label class="form-label">Payment Plan</label>
             <select v-model.number="newUser.subscriptionType" class="form-select" required>
-              <option :value="0">Basic</option>
-              <option :value="1">Premium</option>
-              <option :value="2">Enterprise</option>
+              <option :value="0">Hourly - Pay-as-you-go ($3/hr, cap $10/day)</option>
+              <option :value="1">Daily - Pay-as-you-go ($10/day)</option>
+              <option :value="2">Monthly Subscription - Premium ($150/month)</option>
             </select>
           </div>
           <button type="submit" class="btn btn-success">Create User</button>
@@ -110,7 +110,7 @@ onMounted(loadUsers)
             <th>Name</th>
             <th>Email</th>
             <th>Phone</th>
-            <th>Subscription</th>
+            <th>Payment Plan</th>
             <th>Premium</th>
             <th>Vehicles</th>
             <th>Actions</th>

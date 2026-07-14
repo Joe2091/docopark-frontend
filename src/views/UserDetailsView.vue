@@ -52,7 +52,7 @@ onMounted(loadUserDetails)
             <p><strong>Email:</strong> {{ user.email }}</p>
             <p><strong>Phone:</strong> {{ user.phone }}</p>
             <p>
-              <strong>Subscription:</strong>
+              <strong>Payment Plan:</strong>
               <span
                 :class="{
                   'badge bg-secondary': user.subscriptionType === 0,
@@ -62,10 +62,10 @@ onMounted(loadUserDetails)
               >
                 {{
                   user.subscriptionType === 0
-                    ? 'Basic'
+                    ? 'Hourly'
                     : user.subscriptionType === 1
-                      ? 'Premium'
-                      : 'Enterprise'
+                      ? 'Daily'
+                      : 'Monthly'
                 }}
               </span>
             </p>

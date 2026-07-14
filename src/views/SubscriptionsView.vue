@@ -72,11 +72,11 @@ const toggleActiveFilter = () => {
 const getSubscriptionType = (type: number) => {
   switch (type) {
     case 0:
-      return 'Basic'
+      return 'Hourly'
     case 1:
-      return 'Premium'
+      return 'Daily'
     case 2:
-      return 'Enterprise'
+      return 'Monthly'
     default:
       return 'Unknown'
   }
@@ -101,14 +101,34 @@ onMounted(loadData)
 <template>
   <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
-      <h1>Subscriptions</h1>
+      <h1>Payment Plans</h1>
       <div class="d-flex gap-2">
         <button class="btn btn-outline-secondary" @click="toggleActiveFilter">
           {{ showActiveOnly ? 'Show All' : 'Active Only' }}
         </button>
         <button class="btn btn-primary" @click="showCreateForm = !showCreateForm">
-          {{ showCreateForm ? 'Cancel' : 'New Subscription' }}
+          {{ showCreateForm ? 'Cancel' : 'New Payment Plan' }}
         </button>
+      </div>
+    </div>
+
+    <!-- Payment Options Explanation -->
+    <div class="alert alert-info mb-4">
+      <h6 class="alert-heading">💳 Payment Options</h6>
+      <div class="row small">
+        <div class="col-md-6">
+          <strong>Pay-as-you-go (No Commitment):</strong>
+          <ul class="mb-0">
+            <li><strong>Hourly:</strong> $3/hour, capped at $10/day</li>
+            <li><strong>Daily:</strong> $10 flat per day</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <strong>Subscription (Commitment):</strong>
+          <ul class="mb-0">
+            <li><strong>Monthly:</strong> $150/month with premium benefits</li>
+          </ul>
+        </div>
       </div>
     </div>
 
@@ -116,7 +136,7 @@ onMounted(loadData)
 
     <div v-if="showCreateForm" class="card mb-4">
       <div class="card-body">
-        <h5 class="card-title">Create Subscription</h5>
+        <h5 class="card-title">Set Up Payment Plan</h5>
         <form @submit.prevent="handleCreateSubscription">
           <div class="mb-3">
             <label class="form-label">User</label>
@@ -128,11 +148,11 @@ onMounted(loadData)
             </select>
           </div>
           <div class="mb-3">
-            <label class="form-label">Subscription Type</label>
+            <label class="form-label">Payment Plan Type</label>
             <select v-model.number="newSubscription.type" class="form-select" required>
-              <option :value="0">Basic</option>
-              <option :value="1">Premium</option>
-              <option :value="2">Enterprise</option>
+              <option :value="0">Hourly (Pay-as-you-go)</option>
+              <option :value="1">Daily (Pay-as-you-go)</option>
+              <option :value="2">Monthly (Premium Subscription)</option>
             </select>
           </div>
           <div class="mb-3">

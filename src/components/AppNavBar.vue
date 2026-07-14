@@ -35,7 +35,7 @@ import { RouterLink } from 'vue-router'
             <RouterLink to="/reservations" class="nav-link">Reservations</RouterLink>
           </li>
           <li class="nav-item">
-            <RouterLink to="/subscriptions" class="nav-link">Subscriptions</RouterLink>
+            <RouterLink to="/subscriptions" class="nav-link">Plans</RouterLink>
           </li>
         </ul>
       </div>
